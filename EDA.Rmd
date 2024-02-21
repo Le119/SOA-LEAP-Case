@@ -1,0 +1,34 @@
+---
+title: "EDA"
+author: "Lewei Er"
+date: "2024-02-21"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+library(SmartEDA)
+data <- read.csv("2024-srcsc-superlife-inforce-dataset.csv")
+data
+```
+
+```{r}
+ExpData(data)
+```
+
+
+```{r}
+ExpData(data, type = 2)
+```
+
+```{r}
+ExpNumViz(data)
+```
+
+```{r}
+ExpCatViz(data)
+```
+
+
+
+
+
