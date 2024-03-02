@@ -8,7 +8,7 @@ output: pdf_document
 ```{r setup, include=FALSE}
 library(SmartEDA)
 data <- read.csv("2024-srcsc-superlife-inforce-dataset.csv")
-data
+
 ```
 
 ```{r}
