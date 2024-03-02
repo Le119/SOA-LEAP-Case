@@ -4,3 +4,9 @@ output: html_notebook
 ---
 
 Hello this is just to check if my commit worked well. 
+
+```{r}
+install.packages("smartEDA")
+library(SmartEDA)
+```
+
