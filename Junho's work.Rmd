@@ -3,11 +3,19 @@ title: "R Notebook"
 output: html_notebook
 ---
 
-Hello this is just to check if my commit worked well. 
-
 ```{r}
-install.packages("smartEDA")
-library(SmartEDA)
+# Necessary library for data manipulation
+library(tidyverse)
+library(readxl)
+
+# Correct function usage
+lumaria_data <- read_excel("srcsc-2024-lumaria-economic-data.xlsx")
 ```
 
-Let's check once again...
+```{r}
+# Print the column names of the dataframe
+print(colnames(lumaria_data))
+# Display the structure of the dataframe and the first few rows to inspect column names
+str(lumaria_data)
+head(lumaria_data)
+```
