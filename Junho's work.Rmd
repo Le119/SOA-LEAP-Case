@@ -11,11 +11,3 @@ library(readxl)
 # Correct function usage
 lumaria_data <- read_excel("srcsc-2024-lumaria-economic-data.xlsx")
 ```
-
-```{r}
-# Print the column names of the dataframe
-print(colnames(lumaria_data))
-# Display the structure of the dataframe and the first few rows to inspect column names
-str(lumaria_data)
-head(lumaria_data)
-```

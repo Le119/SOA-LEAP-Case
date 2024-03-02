@@ -1752,35 +1752,76 @@ display: none;
 
 
 <!-- rnb-text-begin -->
-<p>Hello this is just to check if my commit worked well.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcyhcInNtYXJ0RURBXCIpXG5gYGAifQ== -->
-<pre class="r"><code>install.packages(&quot;smartEDA&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBOZWNlc3NhcnkgbGlicmFyeSBmb3IgZGF0YSBtYW5pcHVsYXRpb25cbmxpYnJhcnkodGlkeXZlcnNlKVxuYGBgIn0= -->
+<pre class="r"><code># Necessary library for data manipulation
+library(tidyverse)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiSW5zdGFsbGluZyBwYWNrYWdlIGludG8g4oCYL3Vzci9sb2NhbC9saWIvUi9zaXRlLWxpYnJhcnnigJlcbihhcyDigJhsaWLigJkgaXMgdW5zcGVjaWZpZWQpXG4ifQ== -->
-<pre><code>Installing package into ‘/usr/local/lib/R/site-library’
-(as ‘lib’ is unspecified)</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoi4pSA4pSAIEF0dGFjaGluZyBjb3JlIHRpZHl2ZXJzZSBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDIuMC4wIOKUgOKUgFxu4pyUIGRwbHlyICAgICAxLjEuNCAgICAg4pyUIHJlYWRyICAgICAyLjEuNFxu4pyUIGZvcmNhdHMgICAxLjAuMCAgICAg4pyUIHN0cmluZ3IgICAxLjUuMVxu4pyUIGdncGxvdDIgICAzLjQuNCAgICAg4pyUIHRpYmJsZSAgICAzLjIuMVxu4pyUIGx1YnJpZGF0ZSAxLjkuMyAgICAg4pyUIHRpZHlyICAgICAxLjMuMFxu4pyUIHB1cnJyICAgICAxLjAuMiAgICAg4pSA4pSAIENvbmZsaWN0cyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlX2NvbmZsaWN0cygpIOKUgOKUgFxu4pyWIGRwbHlyOjpmaWx0ZXIoKSBtYXNrcyBzdGF0czo6ZmlsdGVyKClcbuKcliBkcGx5cjo6bGFnKCkgICAgbWFza3Mgc3RhdHM6OmxhZygpXG7ihLkgVXNlIHRoZSBcdTAwMWJdODs7aHR0cDovL2NvbmZsaWN0ZWQuci1saWIub3JnL1x1MDAwN2NvbmZsaWN0ZWQgcGFja2FnZVx1MDAxYl04OztcdTAwMDcgdG8gZm9yY2UgYWxsIGNvbmZsaWN0cyB0byBiZWNvbWUgZXJyb3JzXG4ifQ== -->
+<pre><code>── Attaching core tidyverse packages ─────────────────────────────────────────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     ── Conflicts ───────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZyBpbiBpbnN0YWxsLnBhY2thZ2VzIDpcbiAgcGFja2FnZSDigJhzbWFydEVEQeKAmSBpcyBub3QgYXZhaWxhYmxlIGZvciB0aGlzIHZlcnNpb24gb2YgUlxuXG5BIHZlcnNpb24gb2YgdGhpcyBwYWNrYWdlIGZvciB5b3VyIHZlcnNpb24gb2YgUiBtaWdodCBiZSBhdmFpbGFibGUgZWxzZXdoZXJlLFxuc2VlIHRoZSBpZGVhcyBhdFxuaHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvZG9jL21hbnVhbHMvci1wYXRjaGVkL1ItYWRtaW4uaHRtbCNJbnN0YWxsaW5nLXBhY2thZ2VzXG5XYXJuaW5nIGluIGluc3RhbGwucGFja2FnZXMgOlxuICBQZXJoYXBzIHlvdSBtZWFudCDigJhTbWFydEVEQeKAmSA/XG4ifQ== -->
-<pre><code>Warning in install.packages :
-  package ‘smartEDA’ is not available for this version of R
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkeGwpXG5cbiMgQ29ycmVjdCBmdW5jdGlvbiB1c2FnZVxubHVtYXJpYV9kYXRhIDwtIHJlYWRfZXhjZWwoXCJzcmNzYy0yMDI0LWx1bWFyaWEtZWNvbm9taWMtZGF0YS54bHN4XCIpXG5gYGAifQ== -->
+<pre class="r"><code>library(readxl)
 
-A version of this package for your version of R might be available elsewhere,
-see the ideas at
-https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
-Warning in install.packages :
-  Perhaps you meant ‘SmartEDA’ ?</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShTbWFydEVEQSlcbmBgYCJ9 -->
-<pre class="r"><code>library(SmartEDA)</code></pre>
+# Correct function usage
+lumaria_data &lt;- read_excel(&quot;srcsc-2024-lumaria-economic-data.xlsx&quot;)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTmV3IG5hbWVzOlxuIn0= -->
+<pre><code>New names:</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Let’s check once again…</p>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBQcmludCB0aGUgY29sdW1uIG5hbWVzIG9mIHRoZSBkYXRhZnJhbWVcbnByaW50KGNvbG5hbWVzKGx1bWFyaWFfZGF0YSkpXG5gYGAifQ== -->
+<pre class="r"><code># Print the column names of the dataframe
+print(colnames(lumaria_data))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiLi4uMVwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMl0gXCIuLi4yXCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblszXSBcIi4uLjNcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzRdIFwiLi4uNFwiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bNV0gXCIuLi41XCIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbls2XSBcIi4uLjZcIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuWzddIFwiQ29weXJpZ2h0IMKpIDIwMjQgYnkgdGhlIFNvY2lldHkgb2YgQWN0dWFyaWVzIFJlc2VhcmNoIEluc3RpdHV0ZS4gQWxsIHJpZ2h0cyByZXNlcnZlZC5cIlxuIn0= -->
+<pre><code>[1] &quot;...1&quot;                                                                                 
+[2] &quot;...2&quot;                                                                                 
+[3] &quot;...3&quot;                                                                                 
+[4] &quot;...4&quot;                                                                                 
+[5] &quot;...5&quot;                                                                                 
+[6] &quot;...6&quot;                                                                                 
+[7] &quot;Copyright © 2024 by the Society of Actuaries Research Institute. All rights reserved.&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBEaXNwbGF5IHRoZSBzdHJ1Y3R1cmUgb2YgdGhlIGRhdGFmcmFtZSBhbmQgdGhlIGZpcnN0IGZldyByb3dzIHRvIGluc3BlY3QgY29sdW1uIG5hbWVzXG5zdHIobHVtYXJpYV9kYXRhKVxuYGBgIn0= -->
+<pre class="r"><code># Display the structure of the dataframe and the first few rows to inspect column names
+str(lumaria_data)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoidGliYmxlIFs2NyDDlyA3XSAoUzM6IHRibF9kZi90YmwvZGF0YS5mcmFtZSlcbiAkIC4uLjEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA6IGNociBbMTo2N10gTkEgXCIyMDI0IFN0dWRlbnQgUmVzZWFyY2ggQ2FzZSBTdHVkeSBDaGFsbGVuZ2VcIiBcIkx1bWFyaWEgSGlzdG9yaWNhbCBJbmZsYXRpb24gYW5kIEludGVyZXN0IFJhdGVzXCIgTkEgLi4uXG4gJCAuLi4yICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOiBjaHIgWzE6NjddIE5BIE5BIE5BIE5BIC4uLlxuICQgLi4uMyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDogY2hyIFsxOjY3XSBOQSBOQSBOQSBOQSAuLi5cbiAkIC4uLjQgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA6IGNociBbMTo2N10gTkEgTkEgTkEgTkEgLi4uXG4gJCAuLi41ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOiBjaHIgWzE6NjddIE5BIE5BIE5BIE5BIC4uLlxuICQgLi4uNiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDogbG9naSBbMTo2N10gTkEgTkEgTkEgTkEgTkEgTkEgLi4uXG4gJCBDb3B5cmlnaHQgwqkgMjAyNCBieSB0aGUgU29jaWV0eSBvZiBBY3R1YXJpZXMgUmVzZWFyY2ggSW5zdGl0dXRlLiBBbGwgcmlnaHRzIHJlc2VydmVkLjogbG9naSBbMTo2N10gTkEgTkEgTkEgTkEgTkEgTkEgLi4uXG4ifQ== -->
+<pre><code>tibble [67 × 7] (S3: tbl_df/tbl/data.frame)
+ $ ...1                                                                                 : chr [1:67] NA &quot;2024 Student Research Case Study Challenge&quot; &quot;Lumaria Historical Inflation and Interest Rates&quot; NA ...
+ $ ...2                                                                                 : chr [1:67] NA NA NA NA ...
+ $ ...3                                                                                 : chr [1:67] NA NA NA NA ...
+ $ ...4                                                                                 : chr [1:67] NA NA NA NA ...
+ $ ...5                                                                                 : chr [1:67] NA NA NA NA ...
+ $ ...6                                                                                 : logi [1:67] NA NA NA NA NA NA ...
+ $ Copyright © 2024 by the Society of Actuaries Research Institute. All rights reserved.: logi [1:67] NA NA NA NA NA NA ...</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChsdW1hcmlhX2RhdGEpXG5gYGAifQ== -->
+<pre class="r"><code>head(lumaria_data)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6Nywic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyI2IMOXIDciXX19LCJyZGYiOiJVa1JZTXdwWUNnQUFBQU1BQkFNQ0FBTUZBQUFBQUFWVlZFWXRPQUFBQkFJQUFBQUJBQVFBQ1FBQUFBRjRBQUFERXdBQUFBY0FBQUFRQUFBQUJnQUFBQW4vLy8vL0FBUUFDUUFBQUNveU1ESTBJRk4wZFdSbGJuUWdVbVZ6WldGeVkyZ2dRMkZ6WlNCVGRIVmtlU0JEYUdGc2JHVnVaMlVBQkFBSkFBQUFMMHgxYldGeWFXRWdTR2x6ZEc5eWFXTmhiQ0JKYm1ac1lYUnBiMjRnWVc1a0lFbHVkR1Z5WlhOMElGSmhkR1Z6QUFBQUNmLy8vLzhBQkFBSkFBQUFCRmxsWVhJQUJBQUpBQUFBQkRFNU5qSUFBQUFRQUFBQUJnQUFBQW4vLy8vL0FBQUFDZi8vLy84QUFBQUovLy8vL3dBQUFBbi8vLy8vQUFRQUNRQUFBQWxKYm1ac1lYUnBiMjRBQkFBSkFBQUFGVEl1TmpZM016WXpNVGs1T1RrNU9UazVPVVV0TWdBQUFCQUFBQUFHQUFBQUNmLy8vLzhBQUFBSi8vLy8vd0FBQUFuLy8vLy9BQUFBQ2YvLy8vOEFCQUFKQUFBQUpFZHZkbVZ5Ym0xbGJuUWdiMllnVEhWdFlYSnBZU0JQZG1WeWJtbG5hSFFnVW1GMFpRQUVBQWtBQUFBVk15NHdPVGs0TWpFNE16UTFNakExTkRnelJTMHlBQUFBRUFBQUFBWUFBQUFKLy8vLy93QUFBQW4vLy8vL0FBQUFDZi8vLy84QUFBQUovLy8vL3dBRUFBa0FBQUFmTVMxNWNpQlNhWE5ySUVaeVpXVWdRVzV1ZFdGc0lGTndiM1FnVW1GMFpRQUVBQWtBQUFBVU15NDFNakl6TlRReU1ERXpORGcxTkRoRkxUSUFBQUFRQUFBQUJnQUFBQW4vLy8vL0FBQUFDZi8vLy84QUFBQUovLy8vL3dBQUFBbi8vLy8vQUFRQUNRQUFBQ0F4TUMxNWNpQlNhWE5ySUVaeVpXVWdRVzV1ZFdGc0lGTndiM1FnVW1GMFpRQUVBQWtBQUFBVk5DNDBPVEV3TURZME1UZzJOVEkxTkRneVJTMHlBQUFBQ2dBQUFBYUFBQUFBZ0FBQUFJQUFBQUNBQUFBQWdBQUFBSUFBQUFBQUFBQUtBQUFBQm9BQUFBQ0FBQUFBZ0FBQUFJQUFBQUNBQUFBQWdBQUFBQUFBQkFJQUFBQUJBQVFBQ1FBQUFBVnVZVzFsY3dBQUFCQUFBQUFIQUFRQUNRQUFBQVF1TGk0eEFBUUFDUUFBQUFRdUxpNHlBQVFBQ1FBQUFBUXVMaTR6QUFRQUNRQUFBQVF1TGk0MEFBUUFDUUFBQUFRdUxpNDFBQVFBQ1FBQUFBUXVMaTQyQUFDQUNRQUFBRlpEYjNCNWNtbG5hSFFnd3FrZ01qQXlOQ0JpZVNCMGFHVWdVMjlqYVdWMGVTQnZaaUJCWTNSMVlYSnBaWE1nVW1WelpXRnlZMmdnU1c1emRHbDBkWFJsTGlCQmJHd2djbWxuYUhSeklISmxjMlZ5ZG1Wa0xnQUFCQUlBQUFBQkFBUUFDUUFBQUFseWIzY3VibUZ0WlhNQUFBQU5BQUFBQW9BQUFBRC8vLy82QUFBRUFnQUFBQUVBQkFBSkFBQUFCV05zWVhOekFBQUFFQUFBQUFFQUJBQUpBQUFBQ21SaGRHRXVabkpoYldVQUFBRCtBQUFFQWdBQUFBRUFCQUFKQUFBQUIyOXdkR2x2Ym5NQUFBSVRBQUFBQmdBQUFCQUFBQUFCQUFRQUNRQUFBQUZ5QUFBQUVBQUFBQUVBQkFBSkFBQUFEM1Z1Ym1GdFpXUXRZMmgxYm1zdE1nQUFBQkFBQUFBQkFBUUFDUUFBQUFOd2JtY0FBQUFLQUFBQUFRQUFBQUFBQUFBTkFBQUFBUUFBQUFZQUFBQU5BQUFBQVFBQUFBY0FBQVFDQUFBQy93QUFBQkFBQUFBR0FBUUFDUUFBQUFabGJtZHBibVVBQkFBSkFBQUFCV3hoWW1Wc0FBUUFDUUFBQUFOa1pYWUFCQUFKQUFBQURuSnZkMjVoYldWekxuQnlhVzUwQUFRQUNRQUFBQXB5YjNkekxuUnZkR0ZzQUFRQUNRQUFBQXBqYjJ4ekxuUnZkR0ZzQUFBQS9nQUFBUDQ9In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["...1"],"name":[1],"type":["chr"],"align":["left"]},{"label":["...2"],"name":[2],"type":["chr"],"align":["left"]},{"label":["...3"],"name":[3],"type":["chr"],"align":["left"]},{"label":["...4"],"name":[4],"type":["chr"],"align":["left"]},{"label":["...5"],"name":[5],"type":["chr"],"align":["left"]},{"label":["...6"],"name":[6],"type":["lgl"],"align":["right"]},{"label":["Copyright © 2024 by the Society of Actuaries Research Institute. All rights reserved."],"name":[7],"type":["lgl"],"align":["right"]}],"data":[{"1":"NA","2":"NA","3":"NA","4":"NA","5":"NA","6":"NA","7":"NA"},{"1":"2024 Student Research Case Study Challenge","2":"NA","3":"NA","4":"NA","5":"NA","6":"NA","7":"NA"},{"1":"Lumaria Historical Inflation and Interest Rates","2":"NA","3":"NA","4":"NA","5":"NA","6":"NA","7":"NA"},{"1":"NA","2":"NA","3":"NA","4":"NA","5":"NA","6":"NA","7":"NA"},{"1":"Year","2":"Inflation","3":"Government of Lumaria Overnight Rate","4":"1-yr Risk Free Annual Spot Rate","5":"10-yr Risk Free Annual Spot Rate","6":"NA","7":"NA"},{"1":"1962","2":"2.6673631999999999E-2","3":"3.0998218345205483E-2","4":"3.522354201348548E-2","5":"4.4910064186525482E-2","6":"NA","7":"NA"}],"options":{"columns":{"min":{},"max":[10],"total":[7]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKSGVsbG8gdGhpcyBpcyBqdXN0IHRvIGNoZWNrIGlmIG15IGNvbW1pdCB3b3JrZWQgd2VsbC4gCgpgYGB7cn0KaW5zdGFsbC5wYWNrYWdlcygic21hcnRFREEiKQpsaWJyYXJ5KFNtYXJ0RURBKQpgYGAKCkxldCdzIGNoZWNrIG9uY2UgYWdhaW4uLi4=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CiMgTmVjZXNzYXJ5IGxpYnJhcnkgZm9yIGRhdGEgbWFuaXB1bGF0aW9uCmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KHJlYWR4bCkKCiMgQ29ycmVjdCBmdW5jdGlvbiB1c2FnZQpsdW1hcmlhX2RhdGEgPC0gcmVhZF9leGNlbCgic3Jjc2MtMjAyNC1sdW1hcmlhLWVjb25vbWljLWRhdGEueGxzeCIpCmBgYAoKYGBge3J9CiMgUHJpbnQgdGhlIGNvbHVtbiBuYW1lcyBvZiB0aGUgZGF0YWZyYW1lCnByaW50KGNvbG5hbWVzKGx1bWFyaWFfZGF0YSkpCiMgRGlzcGxheSB0aGUgc3RydWN0dXJlIG9mIHRoZSBkYXRhZnJhbWUgYW5kIHRoZSBmaXJzdCBmZXcgcm93cyB0byBpbnNwZWN0IGNvbHVtbiBuYW1lcwpzdHIobHVtYXJpYV9kYXRhKQpoZWFkKGx1bWFyaWFfZGF0YSkKYGBg</div>
 
 
 
