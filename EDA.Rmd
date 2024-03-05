@@ -9,24 +9,28 @@ output: pdf_document
 #install.packages("SmartEDA")
 library(SmartEDA)
 data <- read.csv("2024-srcsc-superlife-inforce-dataset.csv")
-data
+intervention <- read.csv("intervention_cleaned.csv")
 ```
 
 ```{r}
 ExpData(data)
+ExpData(intervention)
 ```
 
 
 ```{r}
 ExpData(data, type = 2)
+ExpData(intervention, type = 2)
 ```
 
 ```{r}
 ExpNumViz(data)
+ExpNumViz(intervention)
 ```
 
 ```{r}
 ExpCatViz(data)
+ExpCatViz(intervention)
 ```
 
 
