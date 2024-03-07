@@ -1,16 +1,16 @@
 ---
 title: "EDA"
-author: "Lewei Er"
-date: "2024-02-21"
+author: "Sukie Chen"
+date: "2024-03-01"
 output: pdf_document
 ---
-
+Sukieccccc: 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
 ```{r setup, include=FALSE}
 library(SmartEDA)
 data <- read.csv("2024-srcsc-superlife-inforce-dataset.csv")
 data
 ```
-
+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
 ```{r}
 ExpData(data)
 ```
