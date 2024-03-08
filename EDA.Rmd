@@ -9,27 +9,32 @@ output: pdf_document
 #install.packages("SmartEDA")
 library(SmartEDA)
 data <- read.csv("2024-srcsc-superlife-inforce-dataset.csv")
+economy <- read.csv("economy_cleaned.csv")
 intervention <- read.csv("intervention_cleaned.csv")
 ```
 
 ```{r}
 ExpData(data)
+ExpData(economy)
 ExpData(intervention)
 ```
 
 
 ```{r}
 ExpData(data, type = 2)
+ExpData(economy, type = 2)
 ExpData(intervention, type = 2)
 ```
 
 ```{r}
 ExpNumViz(data)
+ExpNumViz(economy)
 ExpNumViz(intervention)
 ```
 
 ```{r}
 ExpCatViz(data)
+# no categorical var in economy
 ExpCatViz(intervention)
 ```
 
