@@ -1,0 +1,65 @@
+---
+title: "Inforce_data_exploration"
+author: "Lewei Er"
+date: "2024-03-16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(SmartEDA)
+library(readr)
+library(tidymodels)
+library(lme4)
+library(lmerTest)
+df <- read.csv("2024-srcsc-superlife-inforce-dataset.csv", skip = 3)
+```
+
+```{r}
+df$Death.indicator <- ifelse(is.na(df$Death.indicator), 0, 1)
+T20 <- df[df$Policy.type == "T20", ]
+SPWL <- df[df$Policy.type == "SPWL", ]
+ExpNumViz(T20)
+ExpNumViz(SPWL)
+unique(T20$Death.indicator)
+unique(SPWL$Death.indicator)
+```
+
+
+```{r}
+# T20 mixed effects logistic
+
+T20$Issue.year <- scale(T20$Issue.year)
+T20$Issue.age <- scale(T20$Issue.age)
+
+mixed_mod_T20 <- glmer(Death.indicator ~ Issue.year + Issue.age + factor(Sex) + factor(Smoker.Status) + (1 | Urban.vs.Rural) + (1 | Region) + (1 | Distribution.Channel), family = binomial, data = T20)
+
+summary(mixed_mod_T20)
+anova(mixed_mod_T20)
+```
+```{r}
+# SPWL mixed effects logistic
+
+SPWL$Issue.year <- scale(SPWL$Issue.year)
+SPWL$Issue.age <- scale(SPWL$Issue.age)
+
+mixed_mod_SPWL <- glmer(Death.indicator ~ Issue.year + Issue.age + factor(Sex) + factor(Smoker.Status) + factor(Urban.vs.Rural) + (1 | Region) + (1 | Distribution.Channel), family = binomial, data = SPWL)
+
+summary(mixed_mod_SPWL)
+anova(mixed_mod_SPWL)
+```
+
+```{r}
+# T20 logistic regression
+log_mod_T20 <- glm(Death.indicator ~ Issue.year * Issue.age * factor(Sex) * factor(Smoker.Status) * factor(Underwriting.Class) * factor(Urban.vs.Rural) * factor(Distribution.Channel), family = binomial(link = "logit"), data = T20)
+
+summary(log_mod_T20)$coefficients[,4]
+```
+
+```{r}
+# SPWL logistic regression
+log_mod_SPWL <- glm(Death.indicator ~ Issue.year * Issue.age * factor(Sex) * factor(Smoker.Status) * factor(Underwriting.Class) * factor(Urban.vs.Rural) * factor(Distribution.Channel), family = binomial(link = "logit"), data = SPWL)
+
+summary(log_mod_SPWL)$coefficients[,4]
+```
+
+
