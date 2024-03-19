@@ -13,6 +13,7 @@ library(lme4)
 library(lmerTest)
 library(glmnet)
 library(brms)
+library(car)
 df <- read.csv("2024-srcsc-superlife-inforce-dataset.csv", skip = 3)
 ```
 
@@ -31,12 +32,16 @@ unique(SPWL$Death.indicator)
 # T20 logistic regression
 log_mod_T20 <- glm(Death.indicator ~ Issue.year * Issue.age * factor(Sex) * factor(Smoker.Status) * factor(Underwriting.Class) * factor(Urban.vs.Rural) * factor(Distribution.Channel), family = binomial(link = "logit"), data = T20)
 
+vif(log_mod_T20)
+
 summary(log_mod_T20)$coefficients[,4]
 ```
 
 ```{r}
 # SPWL logistic regression
 log_mod_SPWL <- glm(Death.indicator ~ Issue.year * Issue.age * factor(Sex) * factor(Smoker.Status) * factor(Underwriting.Class) * factor(Urban.vs.Rural) * factor(Distribution.Channel), family = binomial(link = "logit"), data = SPWL)
+
+vif(log_mod_SPWL)
 
 summary(log_mod_SPWL)$coefficients[,4]
 ```
@@ -46,23 +51,23 @@ X <- model.matrix(Death.indicator ~ Issue.year * Issue.age * factor(Sex) * facto
 y <- SPWL$Death.indicator
 
 # Lasso regression with cross-validation
-cv_lasso <- cv.glmnet(X, y, family = "binomial", alpha = 1) # alpha = 1 for lasso
+cv_lasso_SPWL <- cv.glmnet(X, y, family = "binomial", alpha = 1) # alpha = 1 for lasso
 
 # Ridge regression with cross-validation
-cv_ridge <- cv.glmnet(X, y, family = "binomial", alpha = 0) # alpha = 0 for ridge
+cv_ridge_SPWL <- cv.glmnet(X, y, family = "binomial", alpha = 0) # alpha = 0 for ridge
 
 # Extract coefficients for the model with the best lambda
-coef(cv_lasso, s = "lambda.min")
-coef(cv_ridge, s = "lambda.min")
+coef(cv_lasso_SPWL, s = "lambda.min")
+coef(cv_ridge_SPWL, s = "lambda.min")
 
 # Run elastic net with cross-validation
-cv_elastic_net <- cv.glmnet(X, y, family = "binomial", alpha = 0.5) # Alpha between 0 and 1 for elastic net
+cv_elastic_net_SPWL <- cv.glmnet(X, y, family = "binomial", alpha = 0.5) # Alpha between 0 and 1 for elastic net
 
 # Best lambda
-best_lambda <- cv_elastic_net$lambda.min
+best_lambda_SPWL <- cv_elastic_net_SPWL$lambda.min
 
 # Coefficients at the best lambda
-coef(cv_elastic_net, s = best_lambda)
+coef(cv_elastic_net_SPWL, s = best_lambda_SPWL)
 ```
 
 
@@ -72,23 +77,23 @@ X <- model.matrix(Death.indicator ~ Issue.year * Issue.age * factor(Sex) * facto
 y <- T20$Death.indicator
 
 # Lasso regression with cross-validation
-cv_lasso <- cv.glmnet(X, y, family = "binomial", alpha = 1) # alpha = 1 for lasso
+cv_lasso_T20 <- cv.glmnet(X, y, family = "binomial", alpha = 1) # alpha = 1 for lasso
 
 # Ridge regression with cross-validation
-cv_ridge <- cv.glmnet(X, y, family = "binomial", alpha = 0) # alpha = 0 for ridge
+cv_ridge_T20 <- cv.glmnet(X, y, family = "binomial", alpha = 0) # alpha = 0 for ridge
 
 # Extract coefficients for the model with the best lambda
-coef(cv_lasso, s = "lambda.min")
-coef(cv_ridge, s = "lambda.min")
+coef(cv_lasso_T20, s = "lambda.min")
+coef(cv_ridge_T20, s = "lambda.min")
 
 # Run elastic net with cross-validation
-cv_elastic_net <- cv.glmnet(X, y, family = "binomial", alpha = 0.5) # Alpha between 0 and 1 for elastic net
+cv_elastic_net_T20 <- cv.glmnet(X, y, family = "binomial", alpha = 0.5) # Alpha between 0 and 1 for elastic net
 
 # Best lambda
-best_lambda <- cv_elastic_net$lambda.min
+best_lambda_T20 <- cv_elastic_net_T20$lambda.min
 
 # Coefficients at the best lambda
-coef(cv_elastic_net, s = best_lambda)
+coef(cv_elastic_net_T20, s = best_lambda_T20)
 ```
 
 
