@@ -11,6 +11,8 @@ library(readr)
 library(tidymodels)
 library(lme4)
 library(lmerTest)
+library(glmnet)
+library(brms)
 df <- read.csv("2024-srcsc-superlife-inforce-dataset.csv", skip = 3)
 ```
 
@@ -26,29 +28,6 @@ unique(SPWL$Death.indicator)
 
 
 ```{r}
-# T20 mixed effects logistic
-
-T20$Issue.year <- scale(T20$Issue.year)
-T20$Issue.age <- scale(T20$Issue.age)
-
-mixed_mod_T20 <- glmer(Death.indicator ~ Issue.year + Issue.age + factor(Sex) + factor(Smoker.Status) + (1 | Urban.vs.Rural) + (1 | Region) + (1 | Distribution.Channel), family = binomial, data = T20)
-
-summary(mixed_mod_T20)
-anova(mixed_mod_T20)
-```
-```{r}
-# SPWL mixed effects logistic
-
-SPWL$Issue.year <- scale(SPWL$Issue.year)
-SPWL$Issue.age <- scale(SPWL$Issue.age)
-
-mixed_mod_SPWL <- glmer(Death.indicator ~ Issue.year + Issue.age + factor(Sex) + factor(Smoker.Status) + factor(Urban.vs.Rural) + (1 | Region) + (1 | Distribution.Channel), family = binomial, data = SPWL)
-
-summary(mixed_mod_SPWL)
-anova(mixed_mod_SPWL)
-```
-
-```{r}
 # T20 logistic regression
 log_mod_T20 <- glm(Death.indicator ~ Issue.year * Issue.age * factor(Sex) * factor(Smoker.Status) * factor(Underwriting.Class) * factor(Urban.vs.Rural) * factor(Distribution.Channel), family = binomial(link = "logit"), data = T20)
 
@@ -60,6 +39,56 @@ summary(log_mod_T20)$coefficients[,4]
 log_mod_SPWL <- glm(Death.indicator ~ Issue.year * Issue.age * factor(Sex) * factor(Smoker.Status) * factor(Underwriting.Class) * factor(Urban.vs.Rural) * factor(Distribution.Channel), family = binomial(link = "logit"), data = SPWL)
 
 summary(log_mod_SPWL)$coefficients[,4]
+```
+```{r}
+# Ridge and Lasso Regularization
+X <- model.matrix(Death.indicator ~ Issue.year * Issue.age * factor(Sex) * factor(Smoker.Status) * factor(Underwriting.Class) * factor(Urban.vs.Rural) * factor(Distribution.Channel), data = SPWL)[,-1] # Remove intercept
+y <- SPWL$Death.indicator
+
+# Lasso regression with cross-validation
+cv_lasso <- cv.glmnet(X, y, family = "binomial", alpha = 1) # alpha = 1 for lasso
+
+# Ridge regression with cross-validation
+cv_ridge <- cv.glmnet(X, y, family = "binomial", alpha = 0) # alpha = 0 for ridge
+
+# Extract coefficients for the model with the best lambda
+coef(cv_lasso, s = "lambda.min")
+coef(cv_ridge, s = "lambda.min")
+
+# Run elastic net with cross-validation
+cv_elastic_net <- cv.glmnet(X, y, family = "binomial", alpha = 0.5) # Alpha between 0 and 1 for elastic net
+
+# Best lambda
+best_lambda <- cv_elastic_net$lambda.min
+
+# Coefficients at the best lambda
+coef(cv_elastic_net, s = best_lambda)
+```
+
+
+```{r}
+# Ridge and Lasso Regularization
+X <- model.matrix(Death.indicator ~ Issue.year * Issue.age * factor(Sex) * factor(Smoker.Status) * factor(Underwriting.Class) * factor(Urban.vs.Rural) * factor(Distribution.Channel), data = T20)[,-1] # Remove intercept
+y <- T20$Death.indicator
+
+# Lasso regression with cross-validation
+cv_lasso <- cv.glmnet(X, y, family = "binomial", alpha = 1) # alpha = 1 for lasso
+
+# Ridge regression with cross-validation
+cv_ridge <- cv.glmnet(X, y, family = "binomial", alpha = 0) # alpha = 0 for ridge
+
+# Extract coefficients for the model with the best lambda
+coef(cv_lasso, s = "lambda.min")
+coef(cv_ridge, s = "lambda.min")
+
+# Run elastic net with cross-validation
+cv_elastic_net <- cv.glmnet(X, y, family = "binomial", alpha = 0.5) # Alpha between 0 and 1 for elastic net
+
+# Best lambda
+best_lambda <- cv_elastic_net$lambda.min
+
+# Coefficients at the best lambda
+coef(cv_elastic_net, s = best_lambda)
 ```
 
 
