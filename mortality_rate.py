@@ -5,7 +5,7 @@ def issue_age(u, data):
     aged_policy = []
     for row in data:
         if int(row[3]) == u:
-            aged_policy += row
+            aged_policy += [row]
     return aged_policy
 
 def death_age(u, data):
@@ -13,7 +13,7 @@ def death_age(u, data):
     dead_policy = []
     for row in data:
         if (row[16].isnumeric()) and int(row[16]) == u:
-            dead_policy += row
+            dead_policy += [row]
     return dead_policy
 
 def lapse_age(u, data):
@@ -21,7 +21,7 @@ def lapse_age(u, data):
     end_policy = []
     for row in data:
         if (row[17].isnumeric()) and int(row[17]) == u:
-            end_policy += row
+            end_policy += [row]
     return end_policy
 
 def motality_rate(ui, di, li, c):
@@ -83,11 +83,12 @@ if __name__ == '__main__':
             issue_u = issue_age(u, data)
             lapse_u = lapse_age(u, data)
             (mu, c) = motality_rate(len(issue_u), len(dead_u), len(lapse_u), c)
-
-            print(len(dead_u))
-            print(c)
+            print("age " + str(u))
+            print(len(issue_u), len(dead_u), len(lapse_u))
+            print(mu, c)
             mortality_table.append([u, mu])
         print(mortality_table)
+
 
     with open('inforce_motality_rate.csv', mode='w', newline='') as csv_file:
         writer = csv.writer(csv_file)
