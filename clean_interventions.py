@@ -15,6 +15,13 @@ def extract_digit_sequences(s):
         return ['0', int(digit_sequences[0])]
     
 
+def extract_unit(s):
+    #find all sequences of digits
+    unit_sequences = s[s.find('per') + 4:]
+    
+    return unit_sequences
+    
+
 if __name__ == '__main__':
 
     #read xlsx file into pandas dataframe
@@ -25,12 +32,14 @@ if __name__ == '__main__':
     with open('Interventions.csv', mode='r') as csv_file:
         interventions = csv.reader(csv_file)
         data = [row for row in interventions]
-        col_names = data[0] + ['Lower Mortality Rate Impact', 'Higher Mortality Rate Impact', 'Lower Cost Per Capita', 'Higher Cost Per Capita']
+        col_names = data[0] + ['Lower Mortality Rate Impact', 'Higher Mortality Rate Impact', 'Lower Cost Per Capita', 'Higher Cost Per Capita', 'unit']
         data = data[1:]
+
         for j in range(len(data)):
             for i in range(len(data[j])):
                 data[j][i] = data[j][i].strip('" ')
             data[j] += extract_digit_sequences(data[j][2]) + extract_digit_sequences(data[j][3])
+            data[j] += [extract_unit(data[j][3])]
 
     with open('intervention_cleaned.csv', mode='w', newline='') as csv_file:
         writer = csv.writer(csv_file)
